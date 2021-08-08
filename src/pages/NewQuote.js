@@ -1,7 +1,19 @@
-const NewQuote=()=>{
+import { useHistory } from "react-router-dom";
 
-    return <h1>New Quote Page</h1>
+import QuoteForm from "../components/quotes/QuoteForm";
+
+const NewQuote = () => {
+    const history=useHistory();
+  const addQuoteHandler = (quoteData) => {
+    console.log(quoteData);
+    history.push('/quotes');
+  };
+
+  return (
+    <>
+      <QuoteForm onAddQuote={addQuoteHandler} />
+    </>
+  );
 };
-
 
 export default NewQuote;
